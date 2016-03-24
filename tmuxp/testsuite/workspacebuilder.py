@@ -17,10 +17,10 @@ import unittest
 
 import kaptan
 
-from .helpers import TmuxTestCase
-from .. import Window, config, exc
-from .._compat import text_type
-from ..workspacebuilder import WorkspaceBuilder
+from tmuxp.testsuite.helpers import TmuxTestCase
+from tmuxp import Window, config, exc
+from tmuxp._compat import text_type
+from tmuxp.workspacebuilder import WorkspaceBuilder
 
 logger = logging.getLogger(__name__)
 
@@ -280,6 +280,7 @@ class EnvironmentVariables(TmuxTestCase):
         self.assertEqual('BAR', self.session.show_environment('FOO'))
         self.assertEqual('/tmp', self.session.show_environment('PATH'))
         
+
 class WindowAutomaticRename(TmuxTestCase):
 
     yaml_config = """
