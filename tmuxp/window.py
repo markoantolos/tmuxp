@@ -330,7 +330,8 @@ class Window(util.TmuxMappingObject, util.TmuxRelationalObject):
         self,
         target=None,
         start_directory=None,
-        attach=True
+        attach=True,
+        orientation='vertical'
     ):
         """Split window and return the created :class:`Pane`.
 
@@ -368,6 +369,9 @@ class Window(util.TmuxMappingObject, util.TmuxRelationalObject):
         #'-t%s' % self.attached_pane().get('pane_id'),
         # 2013-10-18 LOOK AT THIS, rm'd it..
         tmux_args = tuple()
+
+        tmux_args += ('-v',) if orientation == 'vertical' else ('-h',)
+
 
         if target:
             tmux_args += ('-t%s' % target,)
